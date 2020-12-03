@@ -43,5 +43,4 @@
             <version>${kumuluzee-rest.version}</version>
         </dependency>
     </dependencies>
-
 </project>
