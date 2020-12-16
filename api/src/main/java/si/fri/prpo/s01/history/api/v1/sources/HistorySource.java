@@ -27,15 +27,15 @@ public class HistorySource {
     void init(){
         map = new HashMap<Integer, List<HistoryDTO>>() {{
             put(1, new ArrayList<HistoryDTO>(){{
-                add(new HistoryDTO(12, new Date(120, Calendar.DECEMBER, 3, 9,0,0)));
-                add(new HistoryDTO(5, new Date(120, Calendar.DECEMBER, 3, 10,0,0)));
-                add(new HistoryDTO(0, new Date(120, Calendar.DECEMBER, 3, 11,0,0)));
+                add(new HistoryDTO(12, 12, new Date(120, Calendar.DECEMBER, 3, 9,0,0)));
+                add(new HistoryDTO(5, -7, new Date(120, Calendar.DECEMBER, 3, 10,0,0)));
+                add(new HistoryDTO(0, -5, new Date(120, Calendar.DECEMBER, 3, 11,0,0)));
             }});
 
             put(2, new ArrayList<HistoryDTO>(){{
-                add(new HistoryDTO(8, new Date(120, Calendar.DECEMBER, 3, 9,0,0)));
-                add(new HistoryDTO(10, new Date(120, Calendar.DECEMBER, 3, 10,0,0)));
-                add(new HistoryDTO(10, new Date(120, Calendar.DECEMBER, 3, 11,0,0)));
+                add(new HistoryDTO(8, 8, new Date(120, Calendar.DECEMBER, 3, 9,0,0)));
+                add(new HistoryDTO(10, 2, new Date(120, Calendar.DECEMBER, 3, 10,0,0)));
+                add(new HistoryDTO(10, 0, new Date(120, Calendar.DECEMBER, 3, 11,0,0)));
             }});
         }};
     }
@@ -53,6 +53,7 @@ public class HistorySource {
     @POST
     @Path("{roomId}")
     public Response addForRoom(@PathParam("roomId") Integer roomId, HistoryDTO history) {
+        history.setDate(new Date());
         List<HistoryDTO> arr = map.get(roomId);
         // Create new if none exists
         if (arr == null){

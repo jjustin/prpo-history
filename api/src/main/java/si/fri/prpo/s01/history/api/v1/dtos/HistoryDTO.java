@@ -4,13 +4,16 @@ import java.util.Date;
 
 public class HistoryDTO {
     Integer inRoom;
+    Integer numberOfPpl;
     Date date;
 
     public HistoryDTO(){}
-    public HistoryDTO(Integer inRoom, Date date) {
+    public HistoryDTO(Integer inRoom,Integer numberOfPpl, Date date) {
         this.inRoom = inRoom;
+        this.numberOfPpl = numberOfPpl;
         this.date = date;
     }
+
 
     public Integer getInRoom() {
         return inRoom;
@@ -20,6 +23,14 @@ public class HistoryDTO {
         this.inRoom = inRoom;
     }
 
+    public Integer getNumberOfPpl() {
+        return numberOfPpl;
+    }
+
+    public void setNumberOfPpl(Integer numberOfPpl) {
+        this.numberOfPpl = numberOfPpl;
+    }
+
     public Date getDate() {
         return date;
     }
@@ -27,4 +38,5 @@ public class HistoryDTO {
     public void setDate(Date date) {
         this.date = date;
     }
+
 }
